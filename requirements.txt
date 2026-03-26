@@ -1,0 +1,19 @@
+# Xử lý hình ảnh và video
+opencv-python>=4.5.0
+mediapipe>=0.8.0
+cvzone>=1.6.1
+
+# Máy học / Deep Learning
+tensorflow>=2.8.0
+h5py>=3.6.0
+scikit-learn>=1.0.0
+numpy>=1.21.0
+
+# Vẽ biểu đồ
+matplotlib>=3.5.0
+
+# Nhận dạng giọng nói
+SpeechRecognition>=3.8.1
+PyAudio>=0.2.13
+
+
