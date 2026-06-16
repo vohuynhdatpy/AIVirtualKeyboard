@@ -1,180 +1,143 @@
-🧠 AI Virtual Keyboard — 95% Accuracy Target
+# ⌨️ AI Virtual Keyboard
 
-Hệ thống bàn phím ảo sử dụng thị giác máy tính (Computer Vision) và trí tuệ nhân tạo (AI), được thiết kế nhằm đạt độ chính xác 95%+ trong việc nhận dạng thao tác gõ phím bằng cử chỉ tay.
+A real-time virtual keyboard system controlled entirely by hand gestures — no physical contact required. Built with Computer Vision and AI, achieving **~90% key detection accuracy** on standard consumer hardware.
 
-🎯 Tính năng chính
+Presented at **FIT IUH 2025 Faculty Research Conference** → [View Paper](https://ssrc.fit.iuh.edu.vn/conf/article/view/209)
 
-✅ Độ chính xác ≥ 95% khi gõ ký tự.
+---
 
-🖐 Nhận dạng tay chính diện (tay phải – tay phải, tay trái – tay trái).
+## 📸 Demo
 
-📐 Phát hiện phím chính xác với khoảng cách tolerance.
+> Point your index finger at a key → pinch index + middle finger to press
 
-⏱️ Latency thấp (< 100 ms).
+---
 
-🧮 Hiển thị real-time metrics: Accuracy, WPM (ký tự/phút), Latency, FPS.
+## ✨ Features
 
-🖼️ Bàn phím QWERTY layout trực quan, hiệu ứng hover & click.
+- 🖐 Real-time hand tracking via **MediaPipe** (21 landmarks)
+- ⌨️ Full **QWERTY layout** with hover and click visual feedback
+- 📊 Live metrics overlay: **Accuracy, Char/min, Latency, FPS**
+- ⚡ Low-latency inference **< 100ms** on standard laptop hardware
+- 🎯 **~90% key detection accuracy** under standard lighting
+- 🧠 Optional deep learning gesture model (`gesture_model_improved.h5`)
 
-🪶 Giao diện nhẹ, mượt — phù hợp real-time camera.
+---
 
-🚀 Cài đặt và chạy
-1. Cài đặt dependencies
+## 🛠️ Tech Stack
+
+| Library | Purpose |
+|---|---|
+| `opencv-python` | Video capture & frame rendering |
+| `mediapipe` | Hand landmark detection & tracking |
+| `cvzone` | UI overlay and keyboard rendering |
+| `numpy` | Numerical operations |
+
+---
+
+## ⚙️ Installation
+
+**Requirements:** Python 3.8+
+
+```bash
+git clone https://github.com/vohuynhdatpy/AIVirtualKeyboard.git
+cd AIVirtualKeyboard
 pip install -r requirements.txt
-
-2. Chạy chương trình chính
 python main.py
+```
 
-📐 Giao diện bàn phím
+---
 
-Layout QWERTY:
+## 🕹️ How to Use
 
-Hàng 1: Q W E R T Y U I O P
+1. Position your hand facing the camera
+2. **Move your index finger** over the target key (hover highlight turns blue)
+3. **Pinch index + middle finger** together to register a key press
+4. Press `ESC` to exit
 
-Hàng 2: A S D F G H J K L
+---
 
-Hàng 3: Z X C V B N M
+## 📐 Keyboard Layout
 
-Hàng 4: Space Backspace Enter
+```
+[ Q ][ W ][ E ][ R ][ T ][ Y ][ U ][ I ][ O ][ P ]
+[ A ][ S ][ D ][ F ][ G ][ H ][ J ][ K ][ L ]
+[ Z ][ X ][ C ][ V ][ B ][ N ][ M ]
+[     Space     ][ Backspace ][ Enter ]
+```
 
-Thiết kế phím:
+- Key size: 80×80px with 10px spacing
+- Hover color: light blue | Press color: dark blue | Default: gray
+- Transparent overlay (alpha = 0.8), centered at bottom of frame
 
-Kích thước: 80×80 pixels
+---
 
-Khoảng cách: 10 pixels
+## 📊 Performance
 
-Màu nền: #CCCCCC (xám)
+| Metric | Target | Achieved |
+|---|---|---|
+| Key detection accuracy | ≥ 90% | ~90% |
+| Latency per keypress | < 100ms | < 100ms |
+| FPS | ≥ 30 FPS | 30+ FPS |
+| Typing speed | ≥ 20 char/min | ✅ |
 
-Màu hover: #ADD8E6 (xanh nhạt)
+---
 
-Màu nhấn: #0000FF (xanh đậm)
+## 📁 Project Structure
 
-Hiển thị transparent overlay (alpha = 0.8)
-
-Căn giữa, đặt phía dưới màn hình, offset 50px từ đáy.
-
-🧠 Công nghệ sử dụng
-
-OpenCV — Xử lý ảnh real-time từ camera.
-
-cvzone — Vẽ giao diện UI cho phím.
-
-Mediapipe — Nhận dạng và tracking tay.
-
-Gesture detection (ngón trỏ – ngón giữa) để kích hoạt click.
-
-📊 Real-time Metrics hiển thị
-Thông số	Ý nghĩa	Mục tiêu
-Accuracy	Độ chính xác ký tự được gõ	≥ 95%
-Char/min (WPM)	Số ký tự gõ mỗi phút	≥ 20 ký tự/phút
-Latency	Độ trễ trung bình mỗi lần nhấn phím	< 100 ms
-FPS	Số khung hình/giây	≥ 30 FPS
-Total Typed	Tổng số ký tự đã gõ	≥ 20 để đạt yêu cầu
-🕹️ Cách sử dụng
-
-Mở camera:
-
-python main.py
-
-
-Đặt tay chính diện trong khung camera.
-
-Di chuyển ngón trỏ đến phím cần gõ.
-
-Gập ngón trỏ lại gần ngón giữa để nhấn phím.
-
-Khi gõ, hệ thống hiển thị:
-
-Accuracy
-
-Char/min
-
-Latency trung bình
-
-FPS real-time
-
-Phím tắt:
-
-ESC: Thoát chương trình.
-
-📂 Cấu trúc project
-├── main.py                        # Ứng dụng chính
+```
+AIVirtualKeyboard/
+├── main.py                         # Main application entry point
+├── requirements.txt                # Dependencies
 ├── modules/
-│   ├── hand_detector.py           # Phát hiện tay bằng Mediapipe
-│   ├── gesture_recognizer.py     # Nhận dạng cử chỉ click
-│   ├── keyboard_layout.py        # Vẽ layout bàn phím QWERTY
-│   └── collision_detector.py     # Xử lý va chạm phím (nếu mở rộng)
+│   ├── hand_detector.py            # MediaPipe hand landmark detection
+│   ├── gesture_recognizer.py       # Click gesture detection (index + middle pinch)
+│   ├── keyboard_layout.py          # QWERTY keyboard rendering
+│   └── collision_detector.py       # Key collision / hit detection
 ├── models/
-│   └── gesture_model_improved.h5 # Model AI (tuỳ chọn nếu dùng DL)
-├── data/
-│   └── ...                       # Training data (nếu train thêm)
-├── requirements.txt              # Thư viện cần cài
-└── README.md
+│   └── gesture_model_improved.h5   # Optional trained gesture model
+└── data/                           # Training data (if extending)
+```
 
-🧪 Điều kiện đạt yêu cầu
+---
 
-Tổng số ký tự gõ ≥ 20 ký tự ✅
+## 🔑 Core Implementation
 
-Accuracy ≥ 95% ✅
+```python
+# Click detection: distance between index tip (8) and middle tip (12)
+if distance(landmark[8], landmark[12]) < CLICK_THRESHOLD:
+    trigger_key_press(hovered_key)
 
-Latency trung bình ≤ 100ms ✅
+# Hover detection: index fingertip proximity to key bounding box
+for key in keyboard_layout:
+    if key.is_hovered(landmark[8]):
+        highlight(key)
+```
 
-FPS ≥ 30 ✅
+---
 
-🛠️ Troubleshooting
-❌ Accuracy không đạt 95%
+## 📄 Research Publication
 
-Kiểm tra khoảng cách tay và camera
+This project was developed and presented as a research paper at the **FIT IUH 2025 Faculty Research Conference**:
 
-Điều chỉnh ánh sáng → tăng tracking ổn định
+> *AI Virtual Keyboard using Hand Gesture Recognition*
+> Võ Huỳnh Đạt, Hoàng Việt Khoa, Dương Xuân Nguyên
+> Industrial University of Ho Chi Minh City, 2025
+> [📖 Read the paper](https://ssrc.fit.iuh.edu.vn/conf/article/view/209)
 
-Gõ chậm và chính xác hơn để tránh double click
+---
 
-📷 Camera không hoạt động
+## 👤 Authors
 
-Kiểm tra camera máy tính (driver/permission)
+**Võ Huỳnh Đạt** (Team Lead) — Computer Science, IUH
+- GitHub: [@vohuynhdatpy](https://github.com/vohuynhdatpy)
+- LinkedIn: [linkedin.com/in/nimbid](https://www.linkedin.com/in/nimbid/)
 
-Thử thay đổi index trong cv2.VideoCapture(0)
+**Hoàng Việt Khoa** — Computer Science, IUH
 
-🐢 FPS thấp
+**Dương Xuân Nguyên** — Computer Science, IUH
 
-Giảm độ phân giải camera
+---
 
-Tối ưu số phép vẽ trên frame
+## 📄 License
 
-Tắt các hiệu ứng không cần thiết
-
-🏆 Kết quả kỳ vọng
-
-📈 Accuracy thực tế ≥ 95%
-
-⚡ Latency trung bình < 100ms
-
-⌨️ Tốc độ gõ ≥ 20 ký tự/phút
-
-🪄 Trải nghiệm thực tế mượt, trực quan, chính xác.
-
-👨‍💻 Tác giả
-
-Tên: Võ Huỳnh Đạt(Nhóm Trưởng)
-
-Trường: Đại học Công nghiệp TP.HCM
-
-Ngành: Khoa học Máy tính-22725911
-
-Tên:Hoàng Việt Khoa(Thành viên)
-
-Trường:Đại học Công nghiệp TP.HCM
-
-Ngành: Khoa học máy tính-22697781
-
-Tên: Dương Xuân Nguyên
-
-Trường:Đại học Công nghiệp TP.HCM
-
-Ngành:Khoa học máy tính-22697951
-
-
-Năm: 2025-2026
-
-Dự án: AI Virtual Keyboard — Real-time Accuracy 
+MIT License — free to use and modify.
