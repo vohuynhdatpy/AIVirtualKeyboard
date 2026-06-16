@@ -120,7 +120,7 @@ for key in keyboard_layout:
 This project was developed and presented as a research paper at the **FIT IUH 2025 Faculty Research Conference**:
 
 > *AI Virtual Keyboard using Hand Gesture Recognition*
-> Võ Huỳnh Đạt, Hoàng Việt Khoa, Dương Xuân Nguyên
+> Võ Huỳnh Đạt
 > Industrial University of Ho Chi Minh City, 2025
 > [📖 Read the paper](https://ssrc.fit.iuh.edu.vn/conf/article/view/209)
 
