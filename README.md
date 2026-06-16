@@ -126,15 +126,11 @@ This project was developed and presented as a research paper at the **FIT IUH 20
 
 ---
 
-## 👤 Authors
+## 👤 Author
 
-**Võ Huỳnh Đạt** (Team Lead) — Computer Science, IUH
+**Võ Huỳnh Đạt** — Computer Science, IUH
 - GitHub: [@vohuynhdatpy](https://github.com/vohuynhdatpy)
 - LinkedIn: [linkedin.com/in/nimbid](https://www.linkedin.com/in/nimbid/)
-
-**Hoàng Việt Khoa** — Computer Science, IUH
-
-**Dương Xuân Nguyên** — Computer Science, IUH
 
 ---
 
